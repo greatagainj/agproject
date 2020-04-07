@@ -33,10 +33,10 @@ localhost:8090/cart/delete/11
         "name": "张三",
         "phone": "16666666666",
         "postCode": "266600",
-        "province": "山东省",
-        "city": "青岛市",
-        "region": "莱西市",
-        "detailAddress": "水集街道李家疃",
+        "province": "ss",
+        "city": "qq",
+        "region": "rrrr",
+        "detailAddress": "xxxxx",
         "areacode": "532",
         "defaultStatus": 1
     },
@@ -46,7 +46,7 @@ localhost:8090/cart/delete/11
         {
             "skuId": 8,
             "title": "锤子坚果pro3 8g,黑色",
-            "defaultImage": "https://gmallz.oss-cn-beijing.aliyuncs.com/2020-03-17/4b46a744-23c4-4c72-8735-7f9db30ad5cf_chuizi2.jpg",
+            "defaultImage": "https://vvvvvvvvvvvvb30ad5cf_chuizi2.jpg",
             "price": 99999,
             "count": 20,
             "weight": 123,
