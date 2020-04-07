@@ -1,19 +1,21 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
-import java.util.Map;
+import java.util.List;
 
 
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.entity.AttrGroupEntity;
+import com.atguigu.gmall.pms.vo.GroupVo;
+import com.atguigu.gmall.pms.vo.ItemGroupVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.pms.entity.AttrGroupEntity;
 import com.atguigu.gmall.pms.service.AttrGroupService;
 
 
@@ -32,6 +34,38 @@ import com.atguigu.gmall.pms.service.AttrGroupService;
 public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
+
+    @GetMapping("item/group/{cid}/{spuId}")
+    public Resp<List<ItemGroupVo>> queryItemGroupVoByCidAndSpuId(@PathVariable("cid")Long cid, @PathVariable("spuId")Long spuId) {
+        List<ItemGroupVo> itemGroupVos = this.attrGroupService.queryItemGroupVoByCidAndSpuId(cid, spuId);
+        return Resp.ok(itemGroupVos);
+    }
+
+
+
+    @GetMapping("withattrs/cat/{catId}")
+    public Resp<List<GroupVo>> queryGroupWithAttrsByCid(@PathVariable("catId")Long cid) {
+
+        List<GroupVo> groupVoList = this.attrGroupService.queryGroupWithAttrsByCid(cid);
+
+        return Resp.ok(groupVoList);
+    }
+
+    @GetMapping("withattr/{gid}")
+    public Resp<GroupVo> queryGroupWithAttrsByGid(@PathVariable("gid")Long gid) {
+
+        GroupVo groupVos =  this.attrGroupService.queryGroupWithAttrsByGid(gid);
+
+        return Resp.ok(groupVos);
+    }
+
+    @GetMapping("{catId}")
+    public Resp<PageVo> queryGroupByPage(QueryCondition condition, @PathVariable("catId")Long catId) {
+
+        PageVo page = attrGroupService.queryGroupByPage(condition, catId);
+
+        return Resp.ok(page);
+    }
 
     /**
      * 列表

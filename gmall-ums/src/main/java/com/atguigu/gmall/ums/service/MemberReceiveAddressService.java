@@ -5,6 +5,8 @@ import com.atguigu.gmall.ums.entity.MemberReceiveAddressEntity;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 
+import java.util.List;
+
 
 /**
  * 会员收货地址
@@ -16,5 +18,6 @@ import com.atguigu.core.bean.QueryCondition;
 public interface MemberReceiveAddressService extends IService<MemberReceiveAddressEntity> {
 
     PageVo queryPage(QueryCondition params);
+
 }
 

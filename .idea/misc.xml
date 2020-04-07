@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="org.springframework.beans.factory.annotation.Autowired" />
+    </list>
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -10,6 +15,13 @@
         <option value="$PROJECT_DIR$/gmall-sms/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-wms/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-search/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-index/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-item/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-cart/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-order/pom.xml" />
       </list>
     </option>
   </component>

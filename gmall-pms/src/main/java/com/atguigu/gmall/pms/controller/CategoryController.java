@@ -1,19 +1,21 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
-import java.util.Map;
+import java.util.List;
 
 
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.entity.CategoryEntity;
+import com.atguigu.gmall.pms.vo.CategoryVo;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.pms.entity.CategoryEntity;
 import com.atguigu.gmall.pms.service.CategoryService;
 
 
@@ -32,6 +34,30 @@ import com.atguigu.gmall.pms.service.CategoryService;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    @GetMapping("{pId}")
+    public Resp<List<CategoryVo>> subQueryCategories(@PathVariable("pId")Long pid) {
+        List<CategoryVo> categoryVoList = this.categoryService.subQueryCategories(pid);
+        return Resp.ok(categoryVoList);
+    }
+
+    @GetMapping()
+    public Resp<List<CategoryEntity>> queryCategoriesByPidOrLevel(
+            @RequestParam(value = "level", defaultValue = "0") Integer level,
+            @RequestParam(value = "parentCid", required = false) Long pid) {
+        QueryWrapper<CategoryEntity> queryWrapper = new QueryWrapper();
+        //判断分类级别
+        if (level != 0) {
+            queryWrapper.eq("cat_level", level);
+        }
+        //判断父节点是否为空
+        if (pid != null) {
+            queryWrapper.eq("parent_cid", pid);
+        }
+        List<CategoryEntity> categoryEntities = categoryService.list(queryWrapper);
+
+        return Resp.ok(categoryEntities);
+    }
 
     /**
      * 列表

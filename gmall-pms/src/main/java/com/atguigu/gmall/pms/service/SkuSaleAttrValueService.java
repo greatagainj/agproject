@@ -1,9 +1,11 @@
 package com.atguigu.gmall.pms.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
+
+import java.util.List;
 
 
 /**
@@ -16,5 +18,7 @@ import com.atguigu.core.bean.QueryCondition;
 public interface SkuSaleAttrValueService extends IService<SkuSaleAttrValueEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    List<SkuSaleAttrValueEntity> queryAttrValueEntities(Long spuId);
 }
 

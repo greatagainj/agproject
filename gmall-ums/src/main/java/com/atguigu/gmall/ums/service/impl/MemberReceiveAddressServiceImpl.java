@@ -1,6 +1,8 @@
 package com.atguigu.gmall.ums.service.impl;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -26,5 +28,7 @@ public class MemberReceiveAddressServiceImpl extends ServiceImpl<MemberReceiveAd
 
         return new PageVo(page);
     }
+
+
 
 }

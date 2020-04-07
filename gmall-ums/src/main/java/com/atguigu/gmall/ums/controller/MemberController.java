@@ -33,6 +33,25 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
+    @GetMapping("query")
+    public Resp<MemberEntity> queryUser(@RequestParam("username")String username, @RequestParam("password")String password) {
+        MemberEntity user = this.memberService.queryUser(username, password);
+
+        return Resp.ok(user);
+    }
+
+    @PostMapping("register")
+    public Resp<Object> register(MemberEntity memberEntity, @RequestParam("code")String code) {
+        this.memberService.register(memberEntity, code);
+        return Resp.ok(null);
+    }
+
+    @GetMapping("check/{data}/{type}")
+    public Resp<Boolean> checkData(@PathVariable("data")String data, @PathVariable("type")Integer type) {
+        Boolean isRegister = this.memberService.checkData(data, type);
+        return Resp.ok(isRegister);
+    }
+
     /**
      * 列表
      */

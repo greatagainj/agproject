@@ -7,11 +7,16 @@ spring:
         server-addr: 127.0.0.1:8848
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.106:3306/guli_oms
+    url: jdbc:mysql://192.168.1.106:3306/guli_oms?characterEncoding=UTF-8
     username: root
     password: admin
   redis:
     host: 192.168.1.106
+  rabbitmq:
+    host: 192.168.1.106
+    username: gmall
+    password: gmall
+    virtual-host: /gmall
 mybatis-plus:
   mapper-locations: classpath:mapper/oms/*.xml  # 读取映射文件
   global-config:
